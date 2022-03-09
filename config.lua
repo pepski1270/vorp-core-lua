@@ -90,7 +90,7 @@ Config.Langs = {
 
 
 Config.maxplayers = 128
-Config.appid =  -- Application ID (Replace this with you own)
+Config.appid = nil -- Application ID (Replace this with you own)
 Config.biglogo = "big" -- image assets name for the "large" icon.
 Config.biglogodesc = " Redm Server Connect: " -- text when hover over image 
 Config.smalllogo = "small"  -- image assets name for the "small" icon.(OPTIONAL)
