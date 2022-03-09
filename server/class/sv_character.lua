@@ -52,7 +52,7 @@ function Character(source, identifier, charIdentifier, group, job, jobgrade, fir
     self.Skin = function(value)
         if value ~= nil then
             self.skin = value
-            exports.ghmattimysql:execute("UPDATE characters SET `skinPlayer` = ? WHERE `identifier` = ? AND `charidentifier` = ?", {value, self.Identifier(), self.CharIdentifier()})
+            exports.ghmattimysql:execute("UPDATE characters SET `skinPlayer` = ? WHERE `charidentifier` = ?", {value, self.CharIdentifier()})
         end
 
         return self.skin
@@ -61,7 +61,7 @@ function Character(source, identifier, charIdentifier, group, job, jobgrade, fir
     self.Comps = function(value)
         if value ~= nil then
             self.comps = value
-            exports.ghmattimysql:execute("UPDATE characters SET `compPlayer` = ? WHERE `identifier` = ? AND `charidentifier` = ?", {value, self.Identifier(), self.CharIdentifier()})
+            exports.ghmattimysql:execute("UPDATE characters SET `compPlayer` = ? WHERE `charidentifier` = ?", {value, self.CharIdentifier()})
         end
 
         return self.comps
@@ -240,12 +240,12 @@ function Character(source, identifier, charIdentifier, group, job, jobgrade, fir
     end
 
     self.DeleteCharacter = function()
-        exports.ghmattimysql:execute("DELETE FROM characters WHERE `identifier` = ? AND `charidentifier` = ? ", {self.Identifier(), self.CharIdentifier()})
+        exports.ghmattimysql:execute("DELETE FROM characters WHERE `charidentifier` = ? ", {self.CharIdentifier()})
     end
 
     self.SaveCharacterCoords = function(coords)
         self.Coords(coords)
-        exports.ghmattimysql:execute("UPDATE characters SET `coords` = ? WHERE `identifier` = ? AND `charidentifier` = ?", {self.Coords(), self.Identifier(), self.CharIdentifier()})
+        exports.ghmattimysql:execute("UPDATE characters SET `coords` = ? WHERE `charidentifier` = ?", {self.Coords(), self.CharIdentifier()})
     end
 
     self.SaveCharacterInDb = function()
